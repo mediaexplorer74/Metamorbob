@@ -8,7 +8,7 @@ Remake of ITCH.io Metamorbob game project.
 
 ## Tech details
 - UWP app
-- Min Win. SDK is 10240, Main Win. SDK is 19041  
+- Min Win. SDK is 10240, Main Win. SDK is 14393  
 - Work in progress
 
 ## .
