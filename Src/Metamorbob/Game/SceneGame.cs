@@ -18,6 +18,7 @@ namespace GameManager
     private Boss boss;
     private TileMap Level;
     private List<Sprite> ListLight = new List<Sprite>();
+    public Flip Flip = new Flip();
 
     private void LoadEntity()
     {

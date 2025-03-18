@@ -16,6 +16,7 @@ namespace GameManager
   internal class Projectile : AnimatedSprite
   {
     private Bob bob;
+    public Flip Flip = new Flip();
     private TileMap tileMap;
     private readonly int ANGLE_SPEED = 12;
     private const byte NB_SWITCH_PARTICLES = 20;

@@ -20,6 +20,7 @@ namespace GameManager
     private int[] CurrentAnimation;
     private float globalSpeedAnimation = 0.2f;
     private double timeElapsed;
+    public Flip Flip = new Flip();
 
     public int nbColumns { get; private set; }
 

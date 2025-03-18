@@ -1,8 +1,4 @@
-﻿
-// Type: GameManager.GamePadInput
-
-
-
+﻿// Type: GameManager.GamePadInput
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;

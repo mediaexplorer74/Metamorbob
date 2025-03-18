@@ -335,7 +335,7 @@ namespace Ionic.Zlib
         this.bi_buf |= (short) (value << this.bi_valid & (int) ushort.MaxValue);
         this.pending[this.pendingCount++] = (byte) this.bi_buf;
         this.pending[this.pendingCount++] = (byte) ((uint) this.bi_buf >> 8);
-        this.bi_buf = (short) (value >>> DeflateManager.Buf_size - this.bi_valid);
+        this.bi_buf = (short) (value >> DeflateManager.Buf_size - this.bi_valid);
         this.bi_valid += num - DeflateManager.Buf_size;
       }
       else
@@ -361,7 +361,7 @@ namespace Ionic.Zlib
 
     internal bool _tr_tally(int dist, int lc)
     {
-      this.pending[this._distanceOffset + this.last_lit * 2] = (byte) (dist >>> 8);
+      this.pending[this._distanceOffset + this.last_lit * 2] = (byte) (dist >> 8);
       this.pending[this._distanceOffset + this.last_lit * 2 + 1] = (byte) dist;
       this.pending[this._lengthOffset + this.last_lit] = (byte) lc;
       ++this.last_lit;

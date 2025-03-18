@@ -61,7 +61,18 @@ namespace GameManager
 
     public override void Update(GameTime gameTime)
     {
-      if (this.CanValidate && (KBInput.JustPressed((Keys) 32) || KBInput.JustPressed((Keys) 13) || GamePadInput.JustPressed((Buttons) 4096) || GamePadInput.JustPressed((Buttons) 16)))
+      if 
+      (
+                this.CanValidate 
+                && 
+                (
+                    KBInput.JustPressed(Keys.Space) 
+                  || KBInput.JustPressed(Keys.Enter) 
+                  || GamePadInput.JustPressed((Buttons) 4096) 
+                  || GamePadInput.JustPressed((Buttons) 16)
+                  || TouchInput.JustLeftClicked()
+                )
+      )
       {
         AssetManager.Sound_Switch.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
         Camera.Fade(1f, Color.Black);

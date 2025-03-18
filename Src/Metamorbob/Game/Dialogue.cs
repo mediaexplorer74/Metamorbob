@@ -1,7 +1,4 @@
-﻿
-// Type: GameManager.Dialogue
-
-
+﻿// Type: GameManager.Dialogue
 
 
 using Microsoft.Xna.Framework;
@@ -15,6 +12,7 @@ namespace GameManager
   internal class Dialogue : Text
   {
     private string EndTextSymbol = "->";
+    public Flip Flip = new Flip();
     private Text EndText;
     private const float InterruptSpeedApparition = 0.001f;
     private float BaseSpeedApparition;
@@ -170,7 +168,9 @@ namespace GameManager
               }
               foreach (Buttons button in this.ButtonToSwitch)
               {
-                if (GamePadInput.JustPressed(button))
+                if (GamePadInput.JustPressed(button) 
+                   //|| TouchInput.JustLeftClicked()
+                )
                 {
                   ++this.CurrentTextPosition;
                   this.MidString = "";
@@ -190,7 +190,10 @@ namespace GameManager
               }
               foreach (Buttons button in this.ButtonToSwitch)
               {
-                if (GamePadInput.JustPressed(button))
+                if 
+                (GamePadInput.JustPressed(button) 
+                   // || TouchInput.JustLeftClicked()
+                )
                   this.IsFullStringAppear = true;
               }
               if (this.OnComplete != null)

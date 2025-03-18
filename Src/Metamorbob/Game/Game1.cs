@@ -46,7 +46,7 @@ namespace GameManager
     public static byte CURRENT_LEVEL = 1;
     public const int DEFAULT_WIDTH = 1280;
     public const int DEFAULT_HEIGHT = 720;
-    public float Scale = 1;
+    public float Scale = 1f;//0.5f;
     public static int WIDTH;
     public static int HEIGHT;
     public static string GAME_VERSION = "1.0";
@@ -66,9 +66,9 @@ namespace GameManager
             TargetElapsedTime = TimeSpan.FromTicks(333333);
 #endif
 
-      graphics.IsFullScreen = true;//false;
+      graphics.IsFullScreen = true;
 
-      this.graphics.GraphicsProfile = GraphicsProfile.HiDef;
+      this.graphics.GraphicsProfile = GraphicsProfile.Reach;
      
       
       //IsMouseVisible = true;
@@ -76,8 +76,10 @@ namespace GameManager
       Game1.WIDTH = this.graphics.PreferredBackBufferWidth;
       Game1.HEIGHT = this.graphics.PreferredBackBufferHeight;
 
-      graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft
-               | DisplayOrientation.LandscapeRight | DisplayOrientation.Portrait;
+            graphics.SupportedOrientations = 
+                   DisplayOrientation.LandscapeRight;
+                   // | DisplayOrientation.LandscapeLeft | 
+                   //DisplayOrientation.Portrait;
 
 
       this.gameState = new GameState(this);
@@ -110,8 +112,9 @@ namespace GameManager
 
         this.Screen = new Screen(this, Game1.TargetWidth, Game1.TargetHeight, this.Scale);
 
-        this.Screen.EnableFullscreen();
-      base.Initialize();
+        //this.Screen.EnableFullscreen();
+
+        base.Initialize();
     }
 
     protected override void LoadContent()
@@ -124,9 +127,12 @@ namespace GameManager
 
       AssetManager.Load();
       this.Screen.Initialize();
+
       GamePadInput.TimerVibration.OnComplete = (OnComplete) (() => GamePadInput.StopVibration());
+
       for (int index = 0; index < 5; ++index)
         Game1.NB_DEATH[index] = 0;
+
       this.gameState.ChangeScene(GameState.SceneType.Menu);
     }
 
@@ -161,8 +167,11 @@ namespace GameManager
     {
       // *********************************
       //Confirm the screen has not been resized by the user
-      if (backbufferHeight != GraphicsDevice.PresentationParameters.BackBufferHeight ||
-        backbufferWidth != GraphicsDevice.PresentationParameters.BackBufferWidth)
+      if 
+      (
+        backbufferHeight != GraphicsDevice.PresentationParameters.BackBufferHeight ||
+        backbufferWidth != GraphicsDevice.PresentationParameters.BackBufferWidth
+      )
       {
         ScalePresentationArea();
       }
@@ -170,13 +179,19 @@ namespace GameManager
 
       Game1.WIDTH = this.graphics.PreferredBackBufferWidth;
       Game1.HEIGHT = this.graphics.PreferredBackBufferHeight;
+
       GamePadInput.capabilities = GamePad.GetCapabilities((PlayerIndex) 0);
+
       KBInput.newKBState = Keyboard.GetState();
       GamePadInput.newGPState = GamePad.GetState((PlayerIndex) 0, (GamePadDeadZone) 1);
+      TouchInput.newTouchState = TouchPanel.GetState();
       MouseInput.newMouseState = Mouse.GetState();
 
-      if ( /*(KBInput.Pressed((Keys) 164) || KBInput.Pressed((Keys) 165)) &&*/
-             KBInput.JustPressed( Keys.Enter))
+      if 
+      ( 
+            //(KBInput.Pressed((Keys) 164) || KBInput.Pressed((Keys) 165)) &&
+             KBInput.JustPressed(Keys.Enter)
+      )
       {
         if (!this.Screen.IsFullscreen)
           this.Screen.EnableFullscreen();
@@ -197,11 +212,15 @@ namespace GameManager
       }
       this.gameState.currentScene?.Update(gameTime);
       Camera.Update(gameTime);
+
+      TouchInput.oldTouchState = TouchInput.newTouchState;
       GamePadInput.oldGPState = GamePadInput.newGPState;
       KBInput.oldKBState = KBInput.newKBState;
       MouseInput.oldMouseState = MouseInput.newMouseState;
+
       if ((double) GamePadInput.TimerVibration.TotalTimer != 0.0)
         GamePadInput.TimerVibration.Update(gameTime);
+
       base.Update(gameTime);
     }
 
@@ -229,7 +248,7 @@ namespace GameManager
       Camera.Draw();
 
       //If not game window active then gray out the screen
-      if (!this.IsActive)
+      /*if (!this.IsActive)
       {
          Primitive.DrawRectangle(Primitive.PrimitiveStyle.FILL,
             this.spriteBatch,
@@ -237,7 +256,7 @@ namespace GameManager
             Camera.Position.Y, Camera.VisibleArea.Width + 2,
             Camera.VisibleArea.Height + 2,
            Color.Multiply(Color.Black, 0.4f));
-      }
+      }*/
       
 
       this.spriteBatch.End();

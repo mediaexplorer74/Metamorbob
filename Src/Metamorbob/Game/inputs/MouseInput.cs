@@ -1,8 +1,4 @@
-﻿
-// Type: GameManager.MouseInput
-
-
-
+﻿// Type: GameManager.MouseInput
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;

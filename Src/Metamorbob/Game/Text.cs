@@ -17,7 +17,7 @@ namespace GameManager
     public Vector2 Origin;
     public Vector2 Scale;
     public float Angle;
-    public Flip Flip;
+    public Flip Flip = new Flip();
     protected SpriteEffects flipEffect;
     public float SpeedApparition = 0.1f;
     protected float currentTimer;

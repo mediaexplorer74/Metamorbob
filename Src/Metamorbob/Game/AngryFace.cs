@@ -13,6 +13,7 @@ namespace GameManager
   {
     private byte NB_PARTICLES = 200;
     private Bob bob;
+    public Flip Flip1 = new Flip();
     private List<SwitchParticle> ListSwitchParticles = new List<SwitchParticle>();
     private const byte MAX_HP = 10;
     private byte HP = 10;
@@ -81,18 +82,19 @@ namespace GameManager
         }
         else
           this.Velocity.Y += 0.6f;
+
         if (Util.DistanceBetween((IActor) this, (IActor) this.bob) < 512.0)
         {
           if ((double) this.Position.Y >= (double) this.InitialPosition.Y && (double) this.bob.Position.X < (double) this.Position.X)
           {
-            this.Flip.X = false;
+            this.Flip1.X = false;
             this.Velocity.X = -(float) Util.RandomInt(2, 6);
             this.Velocity.Y = -14f;
             this.EffectTrail(0.005f, 18);
           }
           else if ((double) this.Position.Y >= (double) this.InitialPosition.Y && (double) this.bob.Position.X > (double) this.Position.X + (double) this.Width)
           {
-            this.Flip.X = true;
+            this.Flip1.X = true;
             this.Velocity.X = (float) Util.RandomInt(2, 6);
             this.Velocity.Y = -14f;
             this.EffectTrail(0.005f, 18);

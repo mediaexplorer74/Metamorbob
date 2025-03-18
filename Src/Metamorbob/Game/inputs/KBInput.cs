@@ -1,8 +1,4 @@
-﻿
-// Type: GameManager.KBInput
-
-
-
+﻿// Type: GameManager.KBInput
 
 using Microsoft.Xna.Framework.Input;
 

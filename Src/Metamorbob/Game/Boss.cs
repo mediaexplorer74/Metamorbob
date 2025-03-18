@@ -29,6 +29,7 @@ namespace GameManager
     private Timer TimerWait = new Timer(2f);
     private Text TextName;
     private Boss.State CurrentState;
+    public Flip Flip = new Flip();
 
     public Boss(Vector2 pos, Bob b)
       : base(AssetManager.Boss, 136, 208)

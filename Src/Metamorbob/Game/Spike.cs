@@ -13,6 +13,7 @@ namespace GameManager
   internal class Spike : Sprite
   {
     private Bob bob;
+    public Flip Flip = new Flip();
 
     public Spike(Bob b)
       : base(AssetManager.Spike)

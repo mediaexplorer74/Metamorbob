@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" IgnorableNamespaces="uap mp iot">
   <Identity Name="ME.Metamorbob1PreALpha" Publisher="CN=Admin" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="5e06543d-af2a-4105-4a80-eb18c64e1724" PhonePublisherId="50000045-6565-4035-4000-200280351024" />
+  <mp:PhoneIdentity PhoneProductId="5e06567d-af21-4105-4a80-eb18c64e1424" PhonePublisherId="50000045-6565-4035-4674-201280351024" />
   <Properties>
     <DisplayName>Metamorbob v1-prealpha</DisplayName>
     <PublisherDisplayName>mediaexplorer</PublisherDisplayName>

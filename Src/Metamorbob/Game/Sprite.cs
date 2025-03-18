@@ -19,7 +19,9 @@ namespace GameManager
     public Color Color;
     public float Alpha;
     public Vector2 Scale;
-    public Flip Flip;
+
+    public Flip Flip = new Flip();
+
     private SpriteEffects flipEffect;
     public bool EffectBlink;
     public float timerVisible = 0.5f;
@@ -65,7 +67,7 @@ namespace GameManager
       this.Alpha = 1f;
       this.Color = Color.White;
       this.Scale = new Vector2(1f, 1f);
-      this.Flip = new Flip();
+      //this.Flip = new Flip();
       this.Velocity = new Vector2(0.0f, 0.0f);
       this.Origin = Vector2.Zero;
       this.ToRemove = false;

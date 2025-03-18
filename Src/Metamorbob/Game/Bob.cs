@@ -18,7 +18,7 @@ namespace GameManager
   internal class Bob : AnimatedSprite
   {
     private const float FULL_GRAVITY = 0.8f;
-    private float GRAVITY = 0.8f;
+    private float GRAVITY = 0.4f;//8f;
     private const byte NB_SWITCH_PARTICLE = 26;
     private const float SCALE_FACTOR = 1.8f;
     private const byte MAX_VELOCITY_Y = 14;
@@ -51,6 +51,7 @@ namespace GameManager
     private Sprite IconLB;
     private Sprite IconRB;
     private int HUDOffsetX = 120;
+    public Flip Flip = new Flip();
 
     public Bob.Mode CurrentMode { get; private set; }
 
@@ -100,13 +101,16 @@ namespace GameManager
       this.TextMode = new Text(AssetManager.FontPixelmaster28, string.Concat((object) this.CurrentMode), Vector2.Zero, Color.DarkViolet);
       this.TextMode.EffectBold = true;
       this.TextMode.Align = Util.Alignement.CENTER_X;
-      string pString = GamePadInput.capabilities.IsConnected ? string.Concat((object) (Buttons) 256) : string.Concat((object) (Keys) 87);
+      string pString = GamePadInput.capabilities.IsConnected 
+                ? string.Concat((object) (Buttons) 256) : string.Concat((object) (Keys) 87);
       this.TextSwitchLeft = new Text(AssetManager.FontPixelmaster28, pString, Vector2.Zero, Color.DarkViolet);
       this.TextSwitchLeft.EffectBold = true;
+
       if (!(GamePadInput.capabilities.IsConnected))
         string.Concat((object) (Keys) 67);
       else
         string.Concat((object) (Buttons) 512);
+
       this.TextSwitchRight = new Text(AssetManager.FontPixelmaster28, pString, Vector2.Zero, Color.DarkViolet);
       this.TextSwitchRight.EffectBold = true;
       this.IconLB = new Sprite(AssetManager.Lb);
@@ -219,13 +223,15 @@ namespace GameManager
         SwitchParticle switchParticle = new SwitchParticle(slowSpeed);
         switchParticle.Position = CustomPosition.HasValue
                     ? CustomPosition.Value 
-                    : (switchParticle.Position = Vector2.Add(this.Position, new Vector2((float) (this.Width / 2),
+                    : (switchParticle.Position = Vector2.Add(this.Position, 
+                    new Vector2((float) (this.Width / 2),
                     (float) (this.Height / 2))));
         switchParticle.Color = color;
         this.ListSwitchParticles.Add(switchParticle);
       }
     }
 
+    // Update
     public override void Update(GameTime gameTime)
     {
       this.Velocity.Y += (this.CurrentMode == Bob.Mode.CANON ? 1.1f : 1f) * this.GRAVITY;
@@ -254,21 +260,35 @@ namespace GameManager
       {
         if (this.CurrentState != Bob.State.CANON)
         {
-          if (KBInput.Pressed((Keys) 37) 
+          if (KBInput.Pressed(Keys.Left)
+            || TouchInput.Left()
             || GamePadInput.Pressed((Buttons) 2097152) 
             || GamePadInput.Pressed((Buttons) 4))
           {
             if (this.IsStanding)
               AssetManager.Sound_Footstep.Instance.Play();
-            this.Velocity.X = this.CurrentMode == Bob.Mode.NORMAL ? -this.Drag.X : (float) (-(double) this.Drag.X * 0.699999988079071);
+            this.Velocity.X = this.CurrentMode == Bob.Mode.NORMAL
+                            ? -this.Drag.X 
+                            : (float) (-(double) this.Drag.X * 0.699999988079071);
           }
-          if (KBInput.Pressed((Keys) 39) || GamePadInput.Pressed((Buttons) 1073741824) || GamePadInput.Pressed((Buttons) 8))
+
+          if 
+          (
+            KBInput.Pressed(Keys.Right) 
+            || TouchInput.Right()
+            || GamePadInput.Pressed((Buttons) 1073741824) 
+            || GamePadInput.Pressed((Buttons) 8)
+          )
           {
             if (this.IsStanding)
               AssetManager.Sound_Footstep.Instance.Play();
             this.Velocity.X = this.CurrentMode == Bob.Mode.NORMAL ? this.Drag.X : this.Drag.X * 0.7f;
           }
-          if (this.CanJump && (KBInput.JustPressed((Keys) 32) || GamePadInput.JustPressed((Buttons) 4096)))
+
+         
+          if (this.CanJump && (KBInput.JustPressed(Keys.Space) 
+                        || TouchInput.JustLeftClicked()
+                        || GamePadInput.JustPressed((Buttons) 4096)))
           {
             AssetManager.Sound_Jump.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
             if (this.CurrentMode == Bob.Mode.NORMAL)
@@ -281,13 +301,22 @@ namespace GameManager
               this.Velocity.Y = (float) (-(double) this.Drag.Y / 2.0);
           }
         }
+
         if (this.CurrentMode == Bob.Mode.CANON)
         {
-          if (KBInput.Pressed((Keys) 37) || GamePadInput.Pressed((Buttons) 2097152) || GamePadInput.Pressed((Buttons) 4))
+          if (KBInput.Pressed(Keys.Left) || TouchInput.Left()
+                        || GamePadInput.Pressed((Buttons) 2097152) 
+                        || GamePadInput.Pressed((Buttons) 4))
             this.Flip.X = true;
-          if (KBInput.Pressed((Keys) 39) || GamePadInput.Pressed((Buttons) 1073741824) || GamePadInput.Pressed((Buttons) 8))
+
+          if (KBInput.Pressed(Keys.Right) || TouchInput.Right()
+                        || GamePadInput.Pressed((Buttons) 1073741824) 
+                        || GamePadInput.Pressed((Buttons) 8))
             this.Flip.X = false;
-          if (KBInput.JustPressed((Keys) 88) || GamePadInput.JustPressed((Buttons) 16384))
+
+          if (KBInput.JustPressed(Keys.X) 
+                        || TouchInput.JustLeftClicked()
+                        || GamePadInput.JustPressed((Buttons) 16384))
           {
             AssetManager.Sound_Shoot.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
             Projectile projectile = new Projectile(this);
@@ -295,7 +324,10 @@ namespace GameManager
             Camera.Shake(6f, 0.1f, Axe.HORIZONTAL);
             this.CreateSwitchParticle((byte) 10, Color.Maroon, true, new Vector2?(projectile.Position));
           }
-          if (this.CanJump && (KBInput.JustPressed((Keys) 32) || GamePadInput.JustPressed((Buttons) 4096)))
+
+          if (this.CanJump && (KBInput.JustPressed(Keys.Space) 
+           || TouchInput.JustLeftClicked()
+          || GamePadInput.JustPressed((Buttons) 4096)))
           {
             AssetManager.Sound_Jump.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
             this.Velocity.Y = -0.9f * this.Drag.Y;
@@ -303,11 +335,16 @@ namespace GameManager
             this.CreateSwitchParticle((byte) 13, Color.DarkGray, true);
           }
         }
-        if (KBInput.JustPressed((Keys) 87) || GamePadInput.JustPressed((Buttons) 256))
+
+        // ?
+        if (KBInput.JustPressed(Keys.X) 
+            //|| TouchInput.JustLeftClicked()
+            || GamePadInput.JustPressed((Buttons) 256))
         {
           AssetManager.Sound_Switch.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
           Camera.Shake(4f, 0.2f, Axe.VERTICAL);
           this.CanJump = false;
+
           if (this.IsStanding && this.CurrentMode == Bob.Mode.CANON)
           {
             AssetManager.Sound_Jump.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
@@ -315,9 +352,12 @@ namespace GameManager
           }
           else
             this.Scale = new Vector2(1.8f);
+
           --this.CurrentMode;
+
           if (this.CurrentMode == ~Bob.Mode.NORMAL)
             this.CurrentMode = Bob.Mode.CANON;
+
           switch (this.CurrentMode)
           {
             case Bob.Mode.NORMAL:
@@ -331,7 +371,13 @@ namespace GameManager
               break;
           }
         }
-        if (KBInput.JustPressed((Keys) 67) || GamePadInput.JustPressed((Buttons) 512))
+
+        if 
+        (
+            KBInput.JustPressed(Keys.C) 
+            || TouchInput.SwipeLeft()
+            || GamePadInput.JustPressed((Buttons) 512)
+        )
         {
           AssetManager.Sound_Switch.SoundEffect.Play(Game1.VOLUME_SFX, 0.0f, 0.0f);
           Camera.Shake(4f, 0.2f, Axe.VERTICAL);
@@ -361,26 +407,33 @@ namespace GameManager
           }
         }
       }
+
       if ((double) this.Scale.X > 1.0)
         this.Scale = Vector2.Subtract(this.Scale, new Vector2(0.1f));
+
       if ((double) this.Scale.X <= 1.0)
         this.Scale = Vector2.One;
+
       if ((double) this.Velocity.X < 0.0)
         this.Flip.X = true;
       else if ((double) this.Velocity.X > 0.0)
         this.Flip.X = false;
+
       if ((double) this.Velocity.X != 0.0)
         this.CurrentState = Bob.State.WALK;
+
       if ((double) this.Velocity.Y != 0.0)
       {
         this.CurrentState = Bob.State.JUMP;
         this.IsJumping = (double) this.Velocity.Y < 0.0;
       }
+
       if (Vector2.Equals(this.Velocity, Vector2.Zero))
       {
         this.IsStanding = true;
         this.CurrentState = Bob.State.IDLE;
       }
+
       if (this.IsDead)
       {
         this.Alpha = 0.0f;
@@ -395,6 +448,7 @@ namespace GameManager
           this.CreateSwitchParticle((byte) 52, Color.DarkRed);
           this.HasJustBeginToDie = true;
         }
+
         if (this.ListSwitchParticles.Count == 0)
         {
           this.Alpha = 1f;
@@ -405,6 +459,7 @@ namespace GameManager
           this.HasJustBeginToDie = false;
         }
       }
+
       if (this.ListSwitchParticles.Count >= 200)
       {
         this.ListSwitchParticles.ForEach((Action<SwitchParticle>) (item => item.ToRemove = true));
@@ -412,8 +467,10 @@ namespace GameManager
       }
       foreach (Sprite listSwitchParticle in this.ListSwitchParticles)
         listSwitchParticle.Update(gameTime);
+
       foreach (Sprite sprite in this.ListProjectile)
         sprite.Update(gameTime);
+
       this.ListSwitchParticles.RemoveAll((Predicate<SwitchParticle>) (item => item.ToRemove));
       this.ListProjectile.RemoveAll((Predicate<Projectile>) (item => item.ToRemove));
       this.TextMode.Position = new Vector2(this.TextMode.Position.X, (float) ((double) Camera.Position.Y + (double) Camera.VisibleArea.Height * 0.699999988079071 + 26.0));
@@ -458,6 +515,7 @@ namespace GameManager
       this.IconFly.Position = new Vector2(Camera.Position.X + (float) Camera.VisibleArea.Width * 0.38f + (float) this.HUDOffsetX, Camera.Position.Y + (float) Camera.VisibleArea.Height * 0.85f);
       this.IconCanon.Position = new Vector2(Camera.Position.X + (float) Camera.VisibleArea.Width * 0.38f + (float) (this.HUDOffsetX * 2), Camera.Position.Y + (float) Camera.VisibleArea.Height * 0.85f);
       base.Update(gameTime);
+
       switch (this.CurrentMode)
       {
         case Bob.Mode.NORMAL:
@@ -470,8 +528,15 @@ namespace GameManager
           this.BoundingBox = new Rectangle((int) this.Position.X + 8, (int) this.Position.Y + 26, (int) ((double) (this.Width - 24) * (double) this.Scale.X), (int) ((double) (this.Height - 26) * (double) this.Scale.Y));
           break;
       }
-    }
 
+      //Touch State Update
+      TouchInput.oldPosition = TouchInput.GetPosition();
+      TouchInput.oldTouchState = TouchInput.newTouchState;
+
+    }//Update
+
+
+    // DrawHUD
     public void DrawHUD(SpriteBatch spriteBatch)
     {
       byte num1 = this.CurrentMode == Bob.Mode.NORMAL ? (byte) 4 : (byte) 2;
@@ -501,11 +566,13 @@ namespace GameManager
       this.IconFly.Draw(spriteBatch);
       this.IconCanon.Draw(spriteBatch);
       this.TextMode.Draw(spriteBatch);
+
       if (GamePadInput.capabilities.IsConnected)
       {
         this.IconLB.Draw(spriteBatch);
         this.IconRB.Draw(spriteBatch);
       }
+
       this.TextSwitchLeft.Draw(spriteBatch);
       this.TextSwitchRight.Draw(spriteBatch);
     }

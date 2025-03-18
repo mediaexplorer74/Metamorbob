@@ -1,15 +1,14 @@
-﻿
-// Type: GameManager.Flip
-
-
-
-
-
-namespace GameManager
+﻿namespace GameManager
 {
-  public struct Flip(bool x = false, bool y = false)
-  {
-    public bool X = x;
-    public bool Y = y;
-  }
+    public class Flip
+    {
+        public bool X;
+        public bool Y;
+
+        public Flip(bool x = false, bool y = false)
+        {
+          X = x;
+          Y = y;
+        }
+    }
 }

@@ -12,7 +12,7 @@
     <AssemblyName>Metamorbob</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -142,14 +142,15 @@
     <Compile Include="Game\Easing.cs" />
     <Compile Include="Game\Flip.cs" />
     <Compile Include="Game\FollowingType.cs" />
-    <Compile Include="Game\GamePadInput.cs" />
+    <Compile Include="Game\inputs\GamePadInput.cs" />
     <Compile Include="Game\GameState.cs" />
     <Compile Include="Game\IActor.cs" />
+    <Compile Include="Game\inputs\TouchInput.cs" />
     <Compile Include="Game\InvertColors.cs" />
     <Compile Include="Game\IParticle.cs" />
-    <Compile Include="Game\KBInput.cs" />
+    <Compile Include="Game\inputs\KBInput.cs" />
     <Compile Include="Game\Game1.cs" />
-    <Compile Include="Game\MouseInput.cs" />
+    <Compile Include="Game\inputs\MouseInput.cs" />
     <Compile Include="Game\OnClick.cs" />
     <Compile Include="Game\OnComplete.cs" />
     <Compile Include="Game\PostProcessingEffect.cs" />

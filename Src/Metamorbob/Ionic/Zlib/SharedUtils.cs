@@ -12,7 +12,7 @@ namespace Ionic.Zlib
 {
   internal class SharedUtils
   {
-    public static int URShift(int number, int bits) => number >>> bits;
+    public static int URShift(int number, int bits) => number >> bits;
 
     public static int ReadInput(TextReader sourceTextReader, byte[] target, int start, int count)
     {

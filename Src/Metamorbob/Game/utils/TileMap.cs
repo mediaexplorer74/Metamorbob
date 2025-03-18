@@ -1,8 +1,4 @@
-﻿
-// Type: GameManager.utils.TileMap
-
-
-
+﻿// Type: GameManager.utils.TileMap
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +16,7 @@ namespace GameManager.utils
     private Texture2D Tileset;
     private bool HAS_SOLID_LAYER;
     private int SOLID_LAYER;
-    public Flip Flip;
+    public Flip Flip = new Flip();
     private SpriteEffects flipEffect;
 
     public Rectangle BoundingBox { get; protected set; }

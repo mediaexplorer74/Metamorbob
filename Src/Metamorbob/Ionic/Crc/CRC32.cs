@@ -107,7 +107,7 @@ namespace Ionic.Crc
     {
       int num1 = (int) data * 131586;
       uint num2 = 17055760;
-      return (byte) (16781313 * ((int) ((uint) num1 & num2) + (num1 << 2 & (int) num2 << 1)) >>> 24);
+      return (byte) (16781313 * ((int) ((uint) num1 & num2) + (num1 << 2 & (int) num2 << 1)) >> 24);
     }
 
     private void GenerateLookupTable()
