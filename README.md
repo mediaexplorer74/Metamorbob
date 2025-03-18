@@ -1,4 +1,6 @@
 # Metamorbob - uwp branch 
+![Logo](Images/logo.png)
+
 Remake of ITCH.io Metamorbob game project.
 
 ## About
@@ -13,7 +15,7 @@ Remake of ITCH.io Metamorbob game project.
 As is. Learn purposes only.
 
 ## Reference(s)
-https://hydrogene.itch.io/metamorbob Original 
+https://hydrogene.itch.io/metamorbob Original project
 
 ## ..
 [m][e] March 2025
