@@ -1,13 +1,13 @@
-# Metamorbob - main branch 
-R.E. of ITCH.io Metamorbob game project.
+# Metamorbob - uwp branch 
+Remake of ITCH.io Metamorbob game project.
 
 ## About
 "3 unique capacities, 5 levels and 1 boss, Can you reach the end in this perma-death adventure?"
 
 ## Tech details
-- "Windows Desktop" app
-- .NET 4.8
-- Proto only (Pure R.E. via DotPeek, no src code edit)
+- UWP app
+- Min Win. SDK is 10240, Main Win. SDK is 19041  
+- Work in progress
 
 ## .
 As is. Learn purposes only.

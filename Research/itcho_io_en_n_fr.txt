@@ -1,0 +1,125 @@
+Skip to main content
+itch.ioitch.io logo
+
+Metamorbob
+Will you be able to finish the 5 levels and beat the boss in this platformer?
+
+Programming Language / Framework : C# and MonoGame
+
+Time passed : ~20 hours
+
+Controls (Keyboard)
+Move : Arrows keys
+Jump : Space
+Shoot : X (Only in Canon mode)
+Switch Mode : W or C
+Controls (Gamepad : XBox 360)
+Move : Directional Pad or Left Thumbstick
+Jump : Space
+Shoot : X (Only in Canon mode)
+Switch Mode : W or C
+I hope you enjoy it :)
+
+Metamorbob.zip
+6.7 MB
+May 28, 2019
+
+
+Coments
+
+lilRyu
+6 years ago
+Pour le coup, c'est vraiment dur... je n'ai pas tenu deux niveau au clavier. lol J'ai terminé le jeu à la manette avec 72 morts au compteur. Selon moi, quelques ajustements s'imposent. Par exemple, ne pas mourir quand on touche le sol en forme oiseau. Ça n'enlèvera rien à la difficulté et ce serait plus logique car je t'avoue que c'est surprenant la première fois. De plus, ça ne pardonne pas quand on se trompe au moment du swap. Le nombre de coup pour détruire les caisses est trop élevé aussi : trois coups suffisent largement.  Ce sont juste des obstacles immobiles et faire du bourrinage de boutons pour les détruire n'a rien de fun, vraiment. À part çà, je sais que tu dis galérer en graphismes mais moi j'aime bien, pour le coup. Je les préfères même à ceux de ATSN, comme quoi. ^^' Je me suis bien amusé lors du combat avec le boss, aussi. Quand à la musique, rien à dire, j'adhère toujours autant. Par contre, je ne comprends pas mais j'ai le même soucis que sur ATSN, à savoir, un micro freeze qui survient par moment et qui me fait foirer une action. J'ai un PC Gamer quand même donc ça me paraît bizarre. Peut-être un problème sous Monogame selon la config ? Bref, lâche rien. Je testerais la nouvelle version de ATSN cette semaine. ++
+
+View rest ↓
+Ответить
+Пожаловаться
+
+
+
+HydroGene
+6 years ago
+Hello, merci de ton retour, tu es vraiment venu tester finalement :) 
+
+C'est vrai que les contrôles clavier ne sont vraiment pas adapter du tout, enfin pour moi ça allait (Peut être parce que je suis gaucher? je sais pas si ça peut influencer le positionnement des touches que je choisis)  Mais en tout cas, on m'a donner quelques nouvelles touches possible à assigner à la place de ceux présent.
+
+C'est également vrai que la grosse bête noir de ce jeu est à propos de l'oiseau, je voulais que ce soit un "Flappy bird", du coup chaque collision provoque une mort. Si je laisse au joueur la possibilité de survivre au contact du sol, le bonhomme bleu devient inutile, il faut réussir à trouver une bonne contrepartie pour chaque forme. J'avais penser à faire en sorte de laisser l'oiseau en suspension dans les airs (sans forcément qu'il retombe sous le coup de la gravité) au moment de la transformation.
+
+Passer le nombre de HP des caisses à 3 ça se pourrait se faire par contre! 
+
+Concernant les graphismes, j'ai voulu faire moi-même car un des thèmes était Graphisme simple, et comme j'suis nul, ben ça, c'est mon maximum lol 
+
+Haha, content que les musiques t'ont plu, on me fait quasiment jamais de retour sur la dessus ^^  
+
+Grrr, encore cette histoire de micro-lag, c'est bizarre! Jusqu'à maintenant il n'y a que 2 personnes (toi y compris) qui m'ont souligné ce problème, je sais vraiment pas pourquoi, ya rien de vraiment consommateur pour générer ça là dedans, il faudrait vraiment que j'essaye de voir d'où ça vient!
+
+Merci d'être passé ;) 
+
+
+
+lilRyu
+6 years ago
+(+1)
+De rien, je suis un homme de parole. En retard, mais de parole. lol Pour l'oiseau, si, une fois au sol, il ne peut pas bouger, çà règle le problème. ;) Pour le lag, fais des recherches sur Monogame. Je suis sûr qu'il y a un truc avec çà et tu ne dois  pas être le seul à avoir rencontré ce problème. Bonne continuation.
+
+
+
+
+Luckius
+6 years ago
+Mon retour sur le jeu (j'écris ce commentaire après un Alt+F4) :
+
+Le jeu continue d'avoir des espèces de micro lags mais ça doit être à cause de la faible puissance de mon ordinateur. La difficulté reste évidemment un des points "forts" de ton jeu, il est parfois frustrant mais il apporte aussi parfois du challenge, je repense au niveau que l'on voit sur le second screen de la page de présentation. Même si le concept reste toujours intéressant, j'ai encore quelques "critiques" (en plus de celles que je viens de faire). Les collisions sont parfois hasardeuses car comme je l'ai dit, des micro lags surviennent et elles me permettent de voir que quand par exemple je prend l'oiseau, je meurs en vol sans avoir réellement touché le bord d'un mur. Les collisions avec les piques sont également un peu frustrantes certaines fois. Les petits ennemis que l'on voit dans le dernier niveau (si je ne me trompe pas) sont la raison de mon rage quit : déplacements hasardeux, ils passent à travers les murs et sont de vrais sacs à PV. 
+
+Je ne suis pas un expert mais je sais que pour inculquer les contrôles et les concepts de base d'un jeu il faut faire évoluer le joueur dans un environnement sans risque : cela aurait été judicieux de mettre au premier niveau des ennemis faibles (genre 1 ou 2 points de vie), qui se déplacent avec un pattern bien précis pour inciter le joueur à prendre le canon et à tirer dessus. Puis tu pourrais en rajouter de nouveaux, avec des patterns un peu plus complexes et un peu plus de points de vie pour ajouter de la difficulté sans brusquer le joueur (le niveau le fait déjà très bien tout seul). Je suis conscient que la grande difficulté même si on te l'a reproché maintes et maintes fois font partie de la force de ton jeu mais néanmoins il ne faut pas oublier que le joueur n'est pas encore habitué. Ce genre de techniques d'apprentissage implicite est très repris puisque utilisé dans le célèbre Half-Life 2 (que tu connais certainement).
+
+
+
+Bref, sinon j'aimerai donner des idées au cas où tu aimerais rajouter quelque chose en jeu : des espèces d'évolutions de personnages pour les différentes capacités (le canon peut tirer 3 balles au lieu de 1, par exemple) ou une quatrième capacité à débloquer, genre une caisse/bouclier qui ne peut pas sauter mais qui peut supporter deux coups au lieu d'un seul (sauf sur les piques).
+
+Je sais que ce jeu n'est pas ton projet principal mais j'avais envie de donner mon "ressenti" sur cette mise à jour. En tout cas, le concept reste excellent et quoi qu'on en dise, le style graphique aussi mais ça tu le sais déjà !
+
+
+HydroGene
+6 years ago
+(+1)
+Hello, merci de ce second retour, mais sache que cette mise à jour n'en est même pas vraiment une. J'ai juste remis le jeu dans le bon sens et rien d'autre. Donc tout les problèmes présents depuis la dernière fois sont toujours là.
+
+Concernant les collisions, hasardeuse? Certainement pas, ça je refuse! Imprécise par contre, possiblement. 
+
+Je fais toujours attention à bien placer les boites de collisions autour des objets en faisant en sorte que les hitbox soient toujours plus petites que la réelle taille de l'entité visible à l'écran. Mais n'oublions pas que ce jeu à été fait en 2 jours dans le cadre d'une Game Jam, et concernant le mode Oiseau, j'avoue que sa hitbox n'est pas bien placé.
+
+Concernant le patterns des ennemies ainsi que le level design et la progression mal jaugée, pareil, encore une fois, ce jeu à été fait en 2 jours, et vu la quantités de choses que propose ce jeu, je n'ai pas eu le temps de me concentrer sur un pattern mieux travailler que ça pour ce monstre, j'ai décidé de partir sur un comportement un peu plus random car c'était plus rapide à faire. Un mauvais choix ça c'est certain.
+
+En tout cas merci pour les idées, ça peut être des powers-ups bien sympathique :) 
+
+Je ne pense pas reprendre ce jeu tout de suite, ni même un jour haha, en tout cas merci d'avoir pris le temps de le retester, même si je n'avais fait aucun changement sur celui-ci, mais ça, tu ne pouvais pas le savoir. Merci encore et bon courage à toi pour le développement de tes propres jeux ;)
+
+
+Luckius
+6 years ago
+(+1)
+Le jeu est super ! Le concept est assez original et le switch entre les trois capacités est assez intuitif, le jeu est simple mais très beau. 
+
+Cependant j'ai trouvé le boss très compliqué et couplé avec des gros lags je n'ai pas pu le battre. Il n'y avait pas aussi de menu pause xD. 
+
+J'ai hâte cependant de voir le jeu évoluer pour pouvoir le tester comme il le faut (avec un PC de meilleure qualité).
+
+
+HydroGene
+6 years ago
+(+1)
+Merci beaucoup, Content que ça t'ait plu ! 
+
+Et bien je n'aurais pas penser avoir des compliments sur les graphismes étant donné que c'est la tâche que je ne maitrise absolument pas (Je suis surtout Programmeur + Musicien) 
+
+Je suis désolé pour la difficulté, on me l'a souvent reproché (avec aussi les contrôles pas évident), normalement le jeu se lance sur le 1er niveau et non pas contre le boss directement,  je dois attendre la fin de la jam pour pouvoir le remettre dans le bon sens x)
+
+Merci encore pour ton retour, ça motive :) Si je dois le continuer ça sera pas maintenant, car en ce moment je suis sur mon gros jeu : Always The Same Nightmare, mais je le garde dans un coin au chaud :)
+
+Ответить
+Пожаловаться
+
+itch.io
+Обновлено May 28, 2019
+Games › Platformer › Free

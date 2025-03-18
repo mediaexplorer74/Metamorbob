@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{87838199-376B-4736-A92E-7105862395B0}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameManager</RootNamespace>
+    <AssemblyName>Metamorbob</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Metamorbob_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <LangVersion>latest</LangVersion>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Never</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <PackageCertificateThumbprint>5ADE606C355930944409C3C50C24E7BF01E8E6A1</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <!--PackageCertificateThumbprint>
+    </PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks-->
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game\AngryFace.cs" />
+    <Compile Include="Game\AnimatedSprite.cs" />
+    <Compile Include="Game\AssetManager.cs" />
+    <Compile Include="Game\Axe.cs" />
+    <Compile Include="Game\Bob.cs" />
+    <Compile Include="Game\Boss.cs" />
+    <Compile Include="Game\Button.cs" />
+    <Compile Include="Game\Camera.cs" />
+    <Compile Include="Game\Crate.cs" />
+    <Compile Include="Game\Dialogue.cs" />
+    <Compile Include="Game\Ease.cs" />
+    <Compile Include="Game\Easing.cs" />
+    <Compile Include="Game\Flip.cs" />
+    <Compile Include="Game\FollowingType.cs" />
+    <Compile Include="Game\GamePadInput.cs" />
+    <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\IActor.cs" />
+    <Compile Include="Game\InvertColors.cs" />
+    <Compile Include="Game\IParticle.cs" />
+    <Compile Include="Game\KBInput.cs" />
+    <Compile Include="Game\Game1.cs" />
+    <Compile Include="Game\MouseInput.cs" />
+    <Compile Include="Game\OnClick.cs" />
+    <Compile Include="Game\OnComplete.cs" />
+    <Compile Include="Game\PostProcessingEffect.cs" />
+    <Compile Include="Game\Primitive.cs" />
+    <Compile Include="Game\Projectile.cs" />
+    <Compile Include="Game\RNG.cs" />
+    <Compile Include="Game\Saw.cs" />
+    <Compile Include="Game\Scene.cs" />
+    <Compile Include="Game\SceneEnd.cs" />
+    <Compile Include="Game\SceneGame.cs" />
+    <Compile Include="Game\SceneMenu.cs" />
+    <Compile Include="Game\Screen.cs" />
+    <Compile Include="Game\Sound.cs" />
+    <Compile Include="Game\Spike.cs" />
+    <Compile Include="Game\Sprite.cs" />
+    <Compile Include="Game\SwitchParticle.cs" />
+    <Compile Include="Game\Text.cs" />
+    <Compile Include="Game\Timer.cs" />
+    <Compile Include="Game\Tween.cs" />
+    <Compile Include="Game\Tweening.cs" />
+    <Compile Include="Game\Util.cs" />
+    <Compile Include="Game\utils\TileMap.cs" />
+    <Compile Include="Glob.cs" />
+    <Compile Include="Ionic\Crc\CRC32.cs" />
+    <Compile Include="Ionic\Crc\CrcCalculatorStream.cs" />
+    <Compile Include="Ionic\Zlib\Adler.cs" />
+    <Compile Include="Ionic\Zlib\BlockState.cs" />
+    <Compile Include="Ionic\Zlib\CompressionLevel.cs" />
+    <Compile Include="Ionic\Zlib\CompressionMode.cs" />
+    <Compile Include="Ionic\Zlib\CompressionStrategy.cs" />
+    <Compile Include="Ionic\Zlib\DeflateFlavor.cs" />
+    <Compile Include="Ionic\Zlib\DeflateManager.cs" />
+    <Compile Include="Ionic\Zlib\DeflateStream.cs" />
+    <Compile Include="Ionic\Zlib\FlushType.cs" />
+    <Compile Include="Ionic\Zlib\GZipStream.cs" />
+    <Compile Include="Ionic\Zlib\InflateBlocks.cs" />
+    <Compile Include="Ionic\Zlib\InflateCodes.cs" />
+    <Compile Include="Ionic\Zlib\InflateManager.cs" />
+    <Compile Include="Ionic\Zlib\InfTree.cs" />
+    <Compile Include="Ionic\Zlib\InternalConstants.cs" />
+    <Compile Include="Ionic\Zlib\InternalInflateConstants.cs" />
+    <Compile Include="Ionic\Zlib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="Ionic\Zlib\SharedUtils.cs" />
+    <Compile Include="Ionic\Zlib\StaticTree.cs" />
+    <Compile Include="Ionic\Zlib\Tree.cs" />
+    <Compile Include="Ionic\Zlib\WorkItem.cs" />
+    <Compile Include="Ionic\Zlib\ZlibBaseStream.cs" />
+    <Compile Include="Ionic\Zlib\ZlibCodec.cs" />
+    <Compile Include="Ionic\Zlib\ZlibConstants.cs" />
+    <Compile Include="Ionic\Zlib\ZlibException.cs" />
+    <Compile Include="Ionic\Zlib\ZlibStream.cs" />
+    <Compile Include="Ionic\Zlib\ZlibStreamFlavor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiledSharp\DrawOrderType.cs" />
+    <Compile Include="TiledSharp\ITmxElement.cs" />
+    <Compile Include="TiledSharp\OrientationType.cs" />
+    <Compile Include="TiledSharp\PropertyDict.cs" />
+    <Compile Include="TiledSharp\RenderOrderType.cs" />
+    <Compile Include="TiledSharp\StaggerAxisType.cs" />
+    <Compile Include="TiledSharp\StaggerIndexType.cs" />
+    <Compile Include="TiledSharp\TmxAnimationFrame.cs" />
+    <Compile Include="TiledSharp\TmxBase64Data.cs" />
+    <Compile Include="TiledSharp\TmxColor.cs" />
+    <Compile Include="TiledSharp\TmxDocument.cs" />
+    <Compile Include="TiledSharp\TmxImage.cs" />
+    <Compile Include="TiledSharp\TmxImageLayer.cs" />
+    <Compile Include="TiledSharp\TmxLayer.cs" />
+    <Compile Include="TiledSharp\TmxLayerTile.cs" />
+    <Compile Include="TiledSharp\TmxList`1.cs" />
+    <Compile Include="TiledSharp\TmxMap.cs" />
+    <Compile Include="TiledSharp\TmxObject.cs" />
+    <Compile Include="TiledSharp\TmxObjectGroup.cs" />
+    <Compile Include="TiledSharp\TmxObjectPoint.cs" />
+    <Compile Include="TiledSharp\TmxObjectType.cs" />
+    <Compile Include="TiledSharp\TmxTerrain.cs" />
+    <Compile Include="TiledSharp\TmxTileOffset.cs" />
+    <Compile Include="TiledSharp\TmxTileset.cs" />
+    <Compile Include="TiledSharp\TmxTilesetTile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-125.png" />
+    <Content Include="Assets\Logo.scale-150.png" />
+    <Content Include="Assets\Logo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-125.png" />
+    <Content Include="Assets\SmallLogo.scale-150.png" />
+    <Content Include="Assets\SmallLogo.scale-200.png" />
+    <Content Include="Assets\SmallLogo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.targetsize-48.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.backup.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\WideTile.scale-100.png" />
+    <Content Include="Assets\WideTile.scale-125.png" />
+    <Content Include="Assets\WideTile.scale-150.png" />
+    <Content Include="Assets\WideTile.scale-200.png" />
+    <Content Include="Assets\WideTile.scale-400.png" />
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>1.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>1.1.4</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal">
+      <Version>3.7.1.189</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Thread">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\Musics\Boss.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bob.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\BobIcon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Boss.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\BtnExit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\BtnFullscreen.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\BtnPlay.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Bullet.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\CanonIcon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Crate.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\FlyIcon.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Fonts\PixelMaster28.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\LB.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level1.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level2.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level3.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level4.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Levels\Level5.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Monster1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Musics\Boss.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Musics\InGame.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Musics\InGame.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Musics\Menu.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Musics\Menu.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\RB.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Rules.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Saw.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\BossLanding.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\BoxExplode.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\EnemyDamage.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\EnemyDie.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Footstep.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Impact.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Jump.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Landing.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Shoot.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sounds\Switch.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Spike.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Tileset.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Metamorbob_TemporaryKey.pfx" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!--Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" /-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
