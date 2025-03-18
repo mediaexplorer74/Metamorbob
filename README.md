@@ -19,6 +19,14 @@ Remake of ITCH.io Metamorbob game project.
 - Only Lumia 640 tested, and Windows 11 desktop (Fullscreen mode)
 - Work in progress
 
+## Game control via Touch panel
+- Tap screen : "simple touch" (start game / jump / fire)
+- Tap screen left : Left move
+- Tap screen right : Right move
+- Tap screen top : Top move
+- Tap screen bottom : Down move
+- Swipe left (two-finger tap and move left) : change "player form" ("metamorphose")
+
 ## ToDo
 - Realize normal screen scaling ...
 
