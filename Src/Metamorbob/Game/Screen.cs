@@ -43,15 +43,18 @@ namespace GameManager
       this.width = width;
       this.height = height;
       this.scale = this.OrigScale = scale;
-      this.DrawRect.Width = this.viewport.Width = (int) ((double) this.screenRect.Width * (double) scale);
-      this.DrawRect.Height = this.viewport.Height = (int) ((double) this.screenRect.Height * (double) scale);
+      this.DrawRect.Width = this.viewport.Width = 
+                (int) ((double) this.screenRect.Width * (double) scale);
+      this.DrawRect.Height = this.viewport.Height = 
+                (int) ((double) this.screenRect.Height * (double) scale);
       this.SetWindowSize(this.DrawRect.Width, this.DrawRect.Height);
     }
 
     public void Initialize()
     {
       this.Dispose();
-      this.RenderTarget = new RenderTarget2D(this.GraphicsDevice, this.screenRect.Width, this.screenRect.Height);
+      this.RenderTarget = new RenderTarget2D(this.GraphicsDevice, 
+          this.screenRect.Width, this.screenRect.Height);
     }
 
     public void Dispose()

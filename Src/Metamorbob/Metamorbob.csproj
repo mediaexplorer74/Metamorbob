@@ -22,13 +22,14 @@
     <LangVersion>latest</LangVersion>
     <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <AppxBundle>Never</AppxBundle>
+    <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>arm</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
-    <PackageCertificateThumbprint>5ADE606C355930944409C3C50C24E7BF01E8E6A1</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>
+    </PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
