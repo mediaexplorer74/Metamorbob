@@ -7,7 +7,8 @@ Remake of ITCH.io Metamorbob game project.
 "3 unique capacities, 5 levels and 1 boss, Can you reach the end in this perma-death adventure?"
 
 ## Screenshots
-![Logo](Images/logo.png)
+![Logo](Images/sshot01.png)
+![Logo](Images/sshot02.png)
 
 ## Tech details
 - UWP app
